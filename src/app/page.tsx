@@ -7,6 +7,7 @@ import AboutSection from "@/components/kothawala/AboutSection";
 import ServicesGrid from "@/components/kothawala/ServicesGrid";
 import ClinicGallery from "@/components/kothawala/ClinicGallery";
 import TestimonialsSection from "@/components/kothawala/TestimonialsSection";
+import FAQSection from "@/components/kothawala/FAQSection";
 import BookingFooter from "@/components/kothawala/BookingFooter";
 import BookingModal from "@/components/kothawala/BookingModal";
 import WhatsAppFAB from "@/components/kothawala/WhatsAppFAB";
@@ -34,6 +35,7 @@ export default function Home() {
         <ServicesGrid onOpenBooking={handleOpenBooking} />
         <ClinicGallery />
         <TestimonialsSection />
+        <FAQSection />
       </main>
 
       {/* Footer & Booking */}

@@ -1,9 +1,29 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Cpu, ShieldCheck, Users2, Award, CheckCircle } from "lucide-react";
+import { Cpu, ShieldCheck, Users2, Award, CheckCircle, Stethoscope, Sparkles, UserCheck } from "lucide-react";
+import Image from "next/image";
 
 export default function AboutSection() {
+  const directors = [
+    {
+      name: "Dr. Abrar Kothawala",
+      role: "Lead Dental Surgeon & Implantologist",
+      experience: "15+ Years Clinical Excellence",
+      specialty: "Dental Implants & Complex Oral Surgery",
+      badge: "BNI Crorepati Club Member",
+      image: "/kothawala/dr-abrar.jpg"
+    },
+    {
+      name: "Dr. Khadeja Kothawala",
+      role: "Co-Director & Senior Aesthetic Consultant",
+      experience: "15+ Years Clinical Care",
+      specialty: "Cosmetic Dentistry & Pediatric Care",
+      badge: "Master Consultant",
+      image: "/kothawala/chair-blue.jpg"
+    }
+  ];
+
   const coreValues = [
     {
       icon: Cpu,
@@ -26,7 +46,8 @@ export default function AboutSection() {
     <section id="about" className="py-28 lg:py-36 bg-white relative overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-12 max-w-7xl">
         
-        <div className="grid lg:grid-cols-12 gap-12 items-center mb-20">
+        {/* About Section Header */}
+        <div className="grid lg:grid-cols-12 gap-12 items-center mb-24">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -101,6 +122,55 @@ export default function AboutSection() {
           </motion.div>
         </div>
 
+        {/* Meet the Directors Featurette (Clean 2-Column Layout) */}
+        <div className="mb-24">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100 text-[#10B981] text-xs font-bold uppercase tracking-wider mb-3">
+              <UserCheck className="w-3.5 h-3.5" /> Leadership & Expertise
+            </div>
+            <h3 className="font-heading font-extrabold text-3xl text-slate-900 tracking-tight">
+              Meet the Directors
+            </h3>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {directors.map((doc, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.15 }}
+                className="p-8 rounded-3xl bg-slate-50 border border-slate-200/80 hover:border-[#0D9488]/40 hover:bg-white hover:shadow-xl transition-all duration-300 flex flex-col sm:flex-row items-center gap-6 group"
+              >
+                <div className="relative w-28 h-36 rounded-2xl overflow-hidden bg-slate-900 shadow-md flex-shrink-0">
+                  <Image
+                    src={doc.image}
+                    alt={doc.name}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+
+                <div className="space-y-2 text-center sm:text-left flex-grow">
+                  <span className="px-2.5 py-1 rounded-full bg-teal-100 text-[#0D9488] text-[10px] font-bold uppercase tracking-wider inline-block mb-1">
+                    {doc.badge}
+                  </span>
+                  <h4 className="font-heading font-extrabold text-xl text-slate-900 leading-tight">
+                    {doc.name}
+                  </h4>
+                  <p className="text-xs text-[#0D9488] font-bold">{doc.role}</p>
+                  <p className="text-xs text-slate-500 font-medium">{doc.experience}</p>
+                  <div className="pt-2 border-t border-slate-100 text-xs font-semibold text-slate-700">
+                    🎯 {doc.specialty}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* 3 Animated Core Value Cards */}
         <div className="grid md:grid-cols-3 gap-8">
           {coreValues.map((value, idx) => {
             const Icon = value.icon;

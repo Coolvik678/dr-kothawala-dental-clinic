@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import { Star, Quote, ChevronLeft, ChevronRight, CheckCircle2 } from "lucide-react";
+import { Star, Quote, ChevronLeft, ChevronRight, CheckCircle2, ShieldCheck } from "lucide-react";
 
 export default function TestimonialsSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -14,7 +14,7 @@ export default function TestimonialsSection() {
       author: "Priya Sharma",
       treatment: "Dental Implant & RCT",
       rating: 5,
-      date: "Verified Patient"
+      date: "Verified Patient Review"
     },
     {
       id: 2,
@@ -22,7 +22,7 @@ export default function TestimonialsSection() {
       author: "Rajesh Patel",
       treatment: "Pediatric Care & Aligners",
       rating: 5,
-      date: "Verified Patient"
+      date: "Verified Patient Review"
     },
     {
       id: 3,
@@ -30,7 +30,7 @@ export default function TestimonialsSection() {
       author: "Ananya Deshmukh",
       treatment: "Cosmetic Smile Design",
       rating: 5,
-      date: "Verified Patient"
+      date: "Verified Patient Review"
     }
   ];
 
@@ -46,31 +46,36 @@ export default function TestimonialsSection() {
     <section id="testimonials" className="py-28 lg:py-36 bg-slate-50 relative overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-12 max-w-7xl">
         
+        {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 text-center md:text-left">
           <div>
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-100 text-amber-800 text-xs font-bold uppercase tracking-wider mb-4">
-              <Star className="w-3.5 h-3.5 fill-current text-amber-500" /> Social Proof
+              <Star className="w-3.5 h-3.5 fill-current text-amber-500" /> Patient Feedback
             </div>
             <h2 className="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-slate-900 tracking-tight">
-              Why Our Patients Trust Us <span className="text-[#0D9488]">(5.0 ★ Rated)</span>
+              Why Our Patients Trust Us
             </h2>
           </div>
 
+          {/* Explicit Trust Badge (as requested) */}
           <div className="bg-white px-6 py-4 rounded-2xl border border-slate-200 flex items-center justify-center gap-4 shadow-sm">
             <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-[#10B981] font-extrabold text-xl flex items-center justify-center">
               5.0
             </div>
             <div>
-              <div className="flex items-center text-amber-400 gap-0.5">
+              <div className="flex items-center text-amber-400 gap-0.5 mb-0.5">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="w-4 h-4 fill-current" />
                 ))}
               </div>
-              <span className="text-xs font-bold text-slate-800">Scores of Verified Patient Reviews</span>
+              <span className="text-xs font-bold text-slate-800 block">
+                5.0/5.0 Rating based on verified Google & Local Patient Reviews.
+              </span>
             </div>
           </div>
         </div>
 
+        {/* Carousel Showcase */}
         <div className="relative">
           <AnimatePresence mode="wait">
             <motion.div
@@ -116,6 +121,7 @@ export default function TestimonialsSection() {
             </motion.div>
           </AnimatePresence>
 
+          {/* Controls */}
           <div className="flex items-center justify-center gap-4 mt-8">
             <button
               onClick={prevSlide}
