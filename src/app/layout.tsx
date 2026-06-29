@@ -8,7 +8,7 @@ const inter = Inter({
 });
 
 const plusJakartaSans = Plus_Jakarta_Sans({
-  variable: "--font-[#0D9488]",
+  variable: "--font-heading",
   weight: ["400", "500", "600", "700", "800"],
   subsets: ["latin"],
 });
