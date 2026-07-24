@@ -10,12 +10,10 @@ import TestimonialsSection from "@/components/kothawala/TestimonialsSection";
 import FAQSection from "@/components/kothawala/FAQSection";
 import BookingFooter from "@/components/kothawala/BookingFooter";
 import BookingModal from "@/components/kothawala/BookingModal";
-import WhatsAppFAB from "@/components/kothawala/WhatsAppFAB";
 
 import { AnimatedBeam } from "@/components/ui/magic/AnimatedBeam";
 import { InteractiveGlobe } from "@/components/ui/magic/InteractiveGlobe";
 import { ClinicalRecoveryChart } from "@/components/ui/charts/ClinicalRecoveryChart";
-import { ToothModelViewer3D } from "@/components/ui/3d/ToothModelViewer3D";
 import { LiquidGlassDrawer } from "@/components/ui/kokonut/LiquidGlassDrawer";
 import { TreatmentCostCalculator } from "@/components/ui/calculator/TreatmentCostCalculator";
 import { BeforeAfterSlider } from "@/components/ui/slider/BeforeAfterSlider";
@@ -23,10 +21,15 @@ import { SterilizationChamber } from "@/components/ui/sterilization/Sterilizatio
 import { HygieneQuiz } from "@/components/ui/quiz/HygieneQuiz";
 import { ScrollProgressBar } from "@/components/ui/navigation/ScrollProgressBar";
 import { EmergencyHotlinePill } from "@/components/ui/pill/EmergencyHotlinePill";
+import { BranchLocationSwitcher } from "@/components/ui/location/BranchLocationSwitcher";
+import { InfiniteReviewMarquee } from "@/components/ui/marquee/InfiniteReviewMarquee";
+import { FloatingChatDrawer } from "@/components/ui/chat/FloatingChatDrawer";
+import { CustomMedicalCursor } from "@/components/ui/cursor/CustomMedicalCursor";
 
 import { useAnimePathDraw, useAnimeStagger } from "@/hooks/use-anime";
-import { Scan, Cpu, Stethoscope, CheckCircle2, Sparkles, ShieldCheck } from "lucide-react";
+import { Scan, Cpu, Stethoscope, CheckCircle2, Sparkles, ShieldCheck, HeartPulse } from "lucide-react";
 import { ShinyButton } from "@/components/ui/magic/ShinyButton";
+import { LiquidGlassCard } from "@/components/ui/kokonut/LiquidGlassCard";
 
 export default function Home() {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
@@ -45,57 +48,68 @@ export default function Home() {
 
   return (
     <div className="relative flex flex-col min-h-screen bg-slate-950 text-slate-100 selection:bg-[#0D9488] selection:text-white antialiased">
-      {/* 12. TOP GLOWING SCROLL PROGRESS BAR */}
-      <ScrollProgressBar />
+      {/* 25. CUSTOM MEDICAL CURSOR */}
+      <CustomMedicalCursor />
 
-      {/* Sticky Header */}
+      {/* 22. DYNAMIC SCROLL COMPRESSED NAVBAR & TOP PROGRESS BAR */}
+      <ScrollProgressBar />
       <Navbar onOpenBooking={handleOpenBooking} />
 
-      {/* Main Content Showcase */}
+      {/* MAIN CONTENT WORKFLOW */}
       <main id="kothawala-main" className="flex-grow">
-        {/* HERO SECTION */}
+        {/* 1-5. HERO & 3D ROTATABLE MODEL SHOWCASE */}
         <Hero onOpenBooking={handleOpenBooking} />
 
-        {/* 1. 3D TOOTH MESH & 6. STERILIZATION CHAMBER SHOWCASE SECTION */}
+        {/* 3 & 24. DUAL BRANCH LOCATION ROUTER SECTION */}
+        <section id="branches" className="py-16 px-6 max-w-7xl mx-auto w-full">
+          <BranchLocationSwitcher />
+        </section>
+
+        {/* 13. PAIN-FREE CARE GUARANTEE (KOKONUTUI) & STERILIZATION CHAMBER */}
         <section className="py-16 px-6 max-w-7xl mx-auto w-full">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <ToothModelViewer3D />
-            <div className="space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-950 text-teal-400 border border-teal-500/30 text-xs font-bold">
-                <Sparkles className="h-4 w-4" /> 10-MICRON DIGITAL PRECISION
+            <LiquidGlassCard badgeText="PAIN-FREE CARE GUARANTEE">
+              <div className="space-y-4">
+                <div className="flex items-center gap-2">
+                  <HeartPulse className="h-6 w-6 text-teal-400" />
+                  <h3 className="text-xl font-bold text-white">Comfort-First & Zero-Anxiety Dentistry</h3>
+                </div>
+                <p className="text-xs text-slate-300 leading-relaxed">
+                  Every procedure at Dr. Kothawala Dental Clinic prioritizes gentle, painless micro-techniques and patient relaxation.
+                </p>
+                <div className="space-y-2 pt-2 text-xs font-semibold text-teal-300">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-emerald-400" /> Computerized Local Anesthesia Delivery
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-emerald-400" /> No-Noise Rotary Endodontics
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-emerald-400" /> Post-Treatment Digital Care Hotline
+                  </div>
+                </div>
               </div>
-              <h2 className="text-3xl font-extrabold text-white leading-tight">
-                3D Anatomical Precision & Class B UV-C Sterilization
-              </h2>
-              <p className="text-slate-300 text-sm leading-relaxed">
-                Experience real-time 3D implant simulations alongside 100% hospital grade autoclaved sterilization protocols.
-              </p>
-              
-              <div className="flex flex-wrap gap-4">
-                <SterilizationChamber />
-                <ShinyButton onClick={() => setIsDrawerOpen(true)} className="h-12 text-xs">
-                  Open Virtual Consultation Drawer
-                </ShinyButton>
-              </div>
-            </div>
+            </LiquidGlassCard>
+
+            <SterilizationChamber />
           </div>
         </section>
 
-        {/* ABOUT SECTION */}
+        {/* ABOUT DOCTOR & CONSULTANT PANEL */}
         <AboutSection />
 
-        {/* 3. TREATMENT COST & 0% EMI CALCULATOR */}
+        {/* 9. INTERACTIVE COST & 0% EMI ESTIMATOR */}
         <section className="py-16 px-6 max-w-7xl mx-auto w-full">
           <TreatmentCostCalculator onOpenBooking={handleOpenBooking} />
         </section>
 
-        {/* MAGIC UI ANIMATED BEAM: 4-Step Patient Pathway */}
-        <section className="py-16 px-4 max-w-7xl mx-auto w-full">
+        {/* 11. PATIENT JOURNEY ANIMATED BEAM (MAGIC UI) */}
+        <section id="workflow" className="py-16 px-4 max-w-7xl mx-auto w-full">
           <div className="text-center mb-8">
             <span className="text-xs font-bold uppercase tracking-widest text-teal-400">
               MAGIC UI ANIMATED BEAM CONNECTOR
             </span>
-            <h3 className="text-2xl font-bold text-white mt-1">4-Step Precision Patient Treatment Pathway</h3>
+            <h3 className="text-2xl font-bold text-white mt-1">4-Step Pain-Free Patient Pathway</h3>
           </div>
 
           <AnimatedBeam
@@ -111,8 +125,8 @@ export default function Home() {
                 icon: <Cpu className="h-6 w-6" />,
               },
               {
-                title: "3. Micro-Invasive Treatment",
-                description: "Pain-free 100% sterilized procedure.",
+                title: "3. Pain-Free Treatment",
+                description: "100% Class B autoclaved sterilized procedure.",
                 icon: <Stethoscope className="h-6 w-6" />,
               },
               {
@@ -124,10 +138,10 @@ export default function Home() {
           />
         </section>
 
-        {/* SERVICES GRID */}
+        {/* 6. BENTO GRID SERVICES MATRIX */}
         <ServicesGrid onOpenBooking={handleOpenBooking} />
 
-        {/* 4. BEFORE / AFTER SMILE TRANSFORMATION SLIDER & 14. HYGIENE QUIZ */}
+        {/* 7. INTERACTIVE SMILE SLIDER & 14. HYGIENE QUIZ */}
         <section className="py-16 px-6 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           <div>
             <BeforeAfterSlider />
@@ -137,7 +151,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* BKLIT CHARTS & MAGIC UI 3D GLOBE */}
+        {/* 15. BKLIT RECOVERY CHARTS & 10. MAGIC UI 3D GLOBE */}
         <section className="py-20 px-6 border-t border-white/10 bg-slate-950/80">
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-10 items-center">
             <div className="lg:col-span-2">
@@ -152,22 +166,35 @@ export default function Home() {
           </div>
         </section>
 
+        {/* 16. INFINITE SMOOTH GOOGLE PATIENT REVIEW MARQUEE */}
+        <section id="reviews" className="py-16 border-t border-white/10 bg-slate-950">
+          <div className="text-center mb-8">
+            <span className="text-xs font-bold uppercase tracking-widest text-teal-400">
+              MAGIC UI MARQUEE CONNECTOR
+            </span>
+            <h3 className="text-2xl font-bold text-white mt-1">Verified Google 5.0 ★ Nagpur Patient Reviews</h3>
+          </div>
+          <InfiniteReviewMarquee />
+        </section>
+
         <ClinicGallery />
         <TestimonialsSection />
         <FAQSection />
       </main>
 
-      {/* Footer & Booking */}
+      {/* FOOTER & BOOKING */}
       <BookingFooter onOpenBooking={handleOpenBooking} />
 
-      {/* 7. EMERGENCY HOTLINE PILL */}
+      {/* 14. EMERGENCY HOTLINE PILL */}
       <EmergencyHotlinePill />
 
-      {/* 2. LIQUID GLASS DRAWER */}
+      {/* 18. FLOATING WHATSAPP INSTANT CHAT DRAWER */}
+      <FloatingChatDrawer />
+
+      {/* 5. VIRTUAL CONSULTATION DRAWER */}
       <LiquidGlassDrawer isOpen={isDrawerOpen} onClose={() => setIsDrawerOpen(false)} />
 
-      {/* Floating Action Elements */}
-      <WhatsAppFAB />
+      {/* BOOKING MODAL */}
       <BookingModal isOpen={isBookingOpen} onClose={handleCloseBooking} />
     </div>
   );
