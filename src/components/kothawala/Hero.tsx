@@ -31,22 +31,22 @@ export default function Hero({ onOpenBooking }: HeroProps) {
           >
             {/* 1. KOKONUTUI Liquid Glass Live Availability Badge */}
             <LiquidGlassCard className="mb-6 py-2 px-4" badgeText="NAGPUR DUAL CLINIC LOCATIONS">
-              <div className="flex items-center gap-2 text-xs font-semibold text-slate-200">
+              <div className="flex items-center gap-2 text-xs font-semibold text-high-emphasis">
                 <Stethoscope className="h-4 w-4 text-teal-400 animate-pulse" />
                 <span>Teen Nal Chowk (Itwari) & New Mankapur • Open Today</span>
               </div>
             </LiquidGlassCard>
 
             {/* 4. Cinematic Hero Typography & Animated Gradient Shimmer */}
-            <h1 className="font-heading font-black text-4xl sm:text-5xl lg:text-6xl text-white leading-[1.12] tracking-tight mb-6">
+            <h1 className="font-serif-display font-normal text-5xl sm:text-6xl lg:text-7xl text-high-emphasis leading-[1.08] tracking-tight mb-6">
               Your Great Smile Begins With A{" "}
-              <span className="bg-gradient-to-r from-teal-400 via-emerald-300 to-sky-400 bg-clip-text text-transparent animate-[shine_4s_infinite]">
+              <span className="bg-gradient-to-r from-teal-400 via-emerald-300 to-sky-400 bg-clip-text text-transparent animate-[shine_4s_infinite] italic font-normal">
                 Great Dentist
               </span>
             </h1>
 
-            <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl mb-8 font-normal">
-              Lead by <strong>Dr. Abrar Kothawala</strong> & <strong>Dr. Khadeja Kothawala</strong> along with a dedicated team of <strong>7 expert dental consultants</strong>. Prioritizing 100% Class B autoclaved sterilization, painless digital care, and 3D implant restoration.
+            <p className="text-base sm:text-lg text-medium-emphasis leading-relaxed max-w-2xl mb-8 font-normal">
+              Led by <strong className="text-high-emphasis">Dr. Abrar Kothawala</strong> & <strong className="text-high-emphasis">Dr. Khadeja Kothawala</strong> along with a dedicated team of <strong className="text-high-emphasis">7 expert dental consultants</strong>. Prioritizing 100% Class B autoclaved sterilization, painless digital care, and 3D implant restoration.
             </p>
 
             <div className="flex flex-wrap items-center gap-4 w-full sm:w-auto mb-12">
@@ -59,7 +59,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
                 href="tel:9326888667"
-                className="w-full sm:w-auto px-7 py-4 rounded-2xl bg-slate-900/80 hover:bg-slate-800 text-white font-bold text-base border border-teal-500/30 shadow-md backdrop-blur-md transition-all flex items-center justify-center gap-2"
+                className="w-full sm:w-auto px-7 py-4 rounded-2xl bg-slate-900/80 hover:bg-slate-800 text-high-emphasis font-bold text-base border border-teal-500/30 shadow-md backdrop-blur-md transition-all flex items-center justify-center gap-2"
               >
                 <PhoneCall className="h-4 w-4 text-teal-400" />
                 <span>+91 9326888667</span>
@@ -72,8 +72,8 @@ export default function Hero({ onOpenBooking }: HeroProps) {
                   <ShieldCheck className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-white">Class B Autoclave</h4>
-                  <p className="text-[11px] text-slate-400">100% Sterile</p>
+                  <h4 className="text-xs font-bold text-high-emphasis">Class B Autoclave</h4>
+                  <p className="text-[11px] text-medium-emphasis">100% Sterile</p>
                 </div>
               </div>
 
@@ -82,8 +82,8 @@ export default function Hero({ onOpenBooking }: HeroProps) {
                   <Users className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-white">7 Consultants</h4>
-                  <p className="text-[11px] text-slate-400">Specialist Panel</p>
+                  <h4 className="text-xs font-bold text-high-emphasis">7 Consultants</h4>
+                  <p className="text-[11px] text-medium-emphasis">Specialist Panel</p>
                 </div>
               </div>
 
@@ -92,8 +92,8 @@ export default function Hero({ onOpenBooking }: HeroProps) {
                   <Award className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-white">5.0 ★ Rated</h4>
-                  <p className="text-[11px] text-slate-400">Nagpur Verified</p>
+                  <h4 className="text-xs font-bold text-high-emphasis">5.0 ★ Rated</h4>
+                  <p className="text-[11px] text-medium-emphasis">Nagpur Verified</p>
                 </div>
               </div>
             </div>

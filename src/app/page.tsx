@@ -14,6 +14,7 @@ import BookingModal from "@/components/kothawala/BookingModal";
 import { AnimatedBeam } from "@/components/ui/magic/AnimatedBeam";
 import { InteractiveGlobe } from "@/components/ui/magic/InteractiveGlobe";
 import { ClinicalRecoveryChart } from "@/components/ui/charts/ClinicalRecoveryChart";
+import { ToothModelViewer3D } from "@/components/ui/3d/ToothModelViewer3D";
 import { LiquidGlassDrawer } from "@/components/ui/kokonut/LiquidGlassDrawer";
 import { TreatmentCostCalculator } from "@/components/ui/calculator/TreatmentCostCalculator";
 import { BeforeAfterSlider } from "@/components/ui/slider/BeforeAfterSlider";
@@ -25,6 +26,9 @@ import { BranchLocationSwitcher } from "@/components/ui/location/BranchLocationS
 import { InfiniteReviewMarquee } from "@/components/ui/marquee/InfiniteReviewMarquee";
 import { FloatingChatDrawer } from "@/components/ui/chat/FloatingChatDrawer";
 import { CustomMedicalCursor } from "@/components/ui/cursor/CustomMedicalCursor";
+
+import { NoiseTextureOverlay } from "@/components/ui/effects/NoiseTextureOverlay";
+import { GSAPScrollTrigger } from "@/components/ui/motion/GSAPScrollTrigger";
 
 import { useAnimePathDraw, useAnimeStagger } from "@/hooks/use-anime";
 import { Scan, Cpu, Stethoscope, CheckCircle2, Sparkles, ShieldCheck, HeartPulse } from "lucide-react";
@@ -48,6 +52,9 @@ export default function Home() {
 
   return (
     <div className="relative flex flex-col min-h-screen bg-slate-950 text-slate-100 selection:bg-[#0D9488] selection:text-white antialiased">
+      {/* TACTILE NOISE & GRAIN OVERLAY */}
+      <NoiseTextureOverlay />
+
       {/* 25. CUSTOM MEDICAL CURSOR */}
       <CustomMedicalCursor />
 
@@ -61,12 +68,12 @@ export default function Home() {
         <Hero onOpenBooking={handleOpenBooking} />
 
         {/* 3 & 24. DUAL BRANCH LOCATION ROUTER SECTION */}
-        <section id="branches" className="py-16 px-6 max-w-7xl mx-auto w-full">
+        <GSAPScrollTrigger className="py-16 px-6 max-w-7xl mx-auto w-full">
           <BranchLocationSwitcher />
-        </section>
+        </GSAPScrollTrigger>
 
         {/* 13. PAIN-FREE CARE GUARANTEE (KOKONUTUI) & STERILIZATION CHAMBER */}
-        <section className="py-16 px-6 max-w-7xl mx-auto w-full">
+        <GSAPScrollTrigger className="py-16 px-6 max-w-7xl mx-auto w-full">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <LiquidGlassCard badgeText="PAIN-FREE CARE GUARANTEE">
               <div className="space-y-4">
@@ -93,15 +100,15 @@ export default function Home() {
 
             <SterilizationChamber />
           </div>
-        </section>
+        </GSAPScrollTrigger>
 
         {/* ABOUT DOCTOR & CONSULTANT PANEL */}
         <AboutSection />
 
         {/* 9. INTERACTIVE COST & 0% EMI ESTIMATOR */}
-        <section className="py-16 px-6 max-w-7xl mx-auto w-full">
+        <GSAPScrollTrigger className="py-16 px-6 max-w-7xl mx-auto w-full">
           <TreatmentCostCalculator onOpenBooking={handleOpenBooking} />
-        </section>
+        </GSAPScrollTrigger>
 
         {/* 11. PATIENT JOURNEY ANIMATED BEAM (MAGIC UI) */}
         <section id="workflow" className="py-16 px-4 max-w-7xl mx-auto w-full">
@@ -142,14 +149,14 @@ export default function Home() {
         <ServicesGrid onOpenBooking={handleOpenBooking} />
 
         {/* 7. INTERACTIVE SMILE SLIDER & 14. HYGIENE QUIZ */}
-        <section className="py-16 px-6 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+        <GSAPScrollTrigger className="py-16 px-6 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           <div>
             <BeforeAfterSlider />
           </div>
           <div>
             <HygieneQuiz onOpenBooking={handleOpenBooking} />
           </div>
-        </section>
+        </GSAPScrollTrigger>
 
         {/* 15. BKLIT RECOVERY CHARTS & 10. MAGIC UI 3D GLOBE */}
         <section className="py-20 px-6 border-t border-white/10 bg-slate-950/80">
