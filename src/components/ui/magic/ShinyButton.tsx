@@ -1,29 +1,25 @@
 "use client";
 
 import React from "react";
-import { motion, HTMLMotionProps } from "motion/react";
 import { cn } from "@/lib/utils";
 
-interface ShinyButtonProps extends HTMLMotionProps<"button"> {
+interface ShinyButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   className?: string;
 }
 
 export function ShinyButton({ children, className, onClick, ...props }: ShinyButtonProps) {
   return (
-    <motion.button
-      whileHover={{ scale: 1.03 }}
-      whileTap={{ scale: 0.97 }}
-      transition={{ type: "spring", stiffness: 400, damping: 25 }}
+    <button
       onClick={onClick}
       className={cn(
-        "relative overflow-hidden rounded-xl border border-teal-400/40 bg-gradient-to-r from-teal-600 via-teal-500 to-emerald-600 px-6 py-3 text-sm font-bold text-white shadow-lg shadow-teal-500/20 backdrop-blur-md hover:shadow-teal-500/40 cursor-pointer",
+        "relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-2xl border border-[#E5C158]/50 bg-gradient-to-r from-amber-950/90 via-slate-900/90 to-cyan-950/90 px-6 py-3 font-bold text-amber-200 shadow-xl backdrop-blur-xl transition-all hover:scale-[1.02] hover:border-[#E5C158] hover:shadow-[0_0_30px_rgba(229,193,88,0.3)] active:scale-[0.98] cursor-pointer",
         className
       )}
       {...props}
     >
-      <span className="pointer-events-none absolute -inset-full top-0 block h-full w-1/2 -skew-x-12 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-[shine_3s_infinite]" />
-      <span className="relative z-10 flex items-center justify-center gap-2">{children}</span>
-    </motion.button>
+      <span className="absolute inset-0 bg-gradient-to-r from-transparent via-[#E5C158]/20 to-transparent animate-[shine_3s_infinite]" />
+      <span className="relative z-10 flex items-center gap-2">{children}</span>
+    </button>
   );
 }

@@ -1,44 +1,34 @@
 "use client";
 
 import React from "react";
-import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 
 interface LiquidGlassCardProps {
   children: React.ReactNode;
-  className?: string;
   badgeText?: string;
-  glowColor?: string;
+  className?: string;
 }
 
-export function LiquidGlassCard({
-  children,
-  className,
-  badgeText,
-  glowColor = "rgba(13, 148, 136, 0.15)",
-}: LiquidGlassCardProps) {
+export function LiquidGlassCard({ children, badgeText, className }: LiquidGlassCardProps) {
   return (
-    <motion.div
-      whileHover={{ scale: 1.02, y: -4 }}
-      transition={{ type: "spring", stiffness: 300, damping: 25 }}
+    <div
       className={cn(
-        "relative overflow-hidden rounded-2xl border border-white/30 bg-white/80 p-6 backdrop-blur-xl shadow-xl transition-all dark:border-white/10 dark:bg-slate-900/80",
+        "relative overflow-hidden rounded-3xl border border-[#E5C158]/35 bg-gradient-to-br from-slate-900/90 via-slate-950/95 to-cyan-950/40 p-6 shadow-2xl backdrop-blur-2xl transition-all hover:border-[#E5C158]/60 hover:shadow-[0_0_35px_rgba(229,193,88,0.15)]",
         className
       )}
-      style={{
-        boxShadow: `0 20px 40px -15px ${glowColor}, inset 0 1px 1px rgba(255, 255, 255, 0.6)`,
-      }}
     >
-      <div className="pointer-events-none absolute -left-20 -top-20 h-40 w-40 rounded-full bg-teal-400/20 blur-3xl" />
-      
+      {/* Frosted Gold Light Reflections */}
+      <div className="pointer-events-none absolute -left-12 -top-12 h-40 w-40 rounded-full bg-[#E5C158]/10 blur-2xl" />
+      <div className="pointer-events-none absolute -right-12 -bottom-12 h-40 w-40 rounded-full bg-cyan-500/10 blur-2xl" />
+
       {badgeText && (
-        <div className="mb-4 inline-flex items-center gap-1.5 rounded-full border border-teal-500/30 bg-teal-50/90 px-3 py-1 text-xs font-semibold text-teal-800 backdrop-blur-md dark:bg-teal-950/60 dark:text-teal-300">
-          <span className="h-1.5 w-1.5 rounded-full bg-teal-500 animate-ping" />
+        <div className="mb-4 inline-flex items-center gap-1.5 rounded-full border border-[#E5C158]/40 bg-amber-950/80 px-3 py-1 text-[10px] font-extrabold uppercase tracking-widest text-[#E5C158] shadow-md backdrop-blur-md">
+          <span className="h-2 w-2 rounded-full bg-[#E5C158] animate-ping" />
           {badgeText}
         </div>
       )}
 
       <div className="relative z-10">{children}</div>
-    </motion.div>
+    </div>
   );
 }

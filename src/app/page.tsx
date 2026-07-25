@@ -14,7 +14,6 @@ import BookingModal from "@/components/kothawala/BookingModal";
 import { AnimatedBeam } from "@/components/ui/magic/AnimatedBeam";
 import { InteractiveGlobe } from "@/components/ui/magic/InteractiveGlobe";
 import { ClinicalRecoveryChart } from "@/components/ui/charts/ClinicalRecoveryChart";
-import { ToothModelViewer3D } from "@/components/ui/3d/ToothModelViewer3D";
 import { LiquidGlassDrawer } from "@/components/ui/kokonut/LiquidGlassDrawer";
 import { TreatmentCostCalculator } from "@/components/ui/calculator/TreatmentCostCalculator";
 import { BeforeAfterSlider } from "@/components/ui/slider/BeforeAfterSlider";
@@ -31,8 +30,7 @@ import { NoiseTextureOverlay } from "@/components/ui/effects/NoiseTextureOverlay
 import { GSAPScrollTrigger } from "@/components/ui/motion/GSAPScrollTrigger";
 
 import { useAnimePathDraw, useAnimeStagger } from "@/hooks/use-anime";
-import { Scan, Cpu, Stethoscope, CheckCircle2, Sparkles, ShieldCheck, HeartPulse } from "lucide-react";
-import { ShinyButton } from "@/components/ui/magic/ShinyButton";
+import { Scan, Cpu, Stethoscope, CheckCircle2, HeartPulse } from "lucide-react";
 import { LiquidGlassCard } from "@/components/ui/kokonut/LiquidGlassCard";
 
 export default function Home() {
@@ -51,8 +49,8 @@ export default function Home() {
   const handleCloseBooking = () => setIsBookingOpen(false);
 
   return (
-    <div className="relative flex flex-col min-h-screen bg-slate-950 text-slate-100 selection:bg-[#0D9488] selection:text-white antialiased">
-      {/* TACTILE NOISE & GRAIN OVERLAY */}
+    <div className="relative flex flex-col min-h-screen bg-[#070A0F] text-slate-100 selection:bg-[#E5C158] selection:text-slate-950 antialiased">
+      {/* TACTILE NOISE OVERLAY */}
       <NoiseTextureOverlay />
 
       {/* 25. CUSTOM MEDICAL CURSOR */}
@@ -78,13 +76,13 @@ export default function Home() {
             <LiquidGlassCard badgeText="PAIN-FREE CARE GUARANTEE">
               <div className="space-y-4">
                 <div className="flex items-center gap-2">
-                  <HeartPulse className="h-6 w-6 text-teal-400" />
+                  <HeartPulse className="h-6 w-6 text-[#E5C158]" />
                   <h3 className="text-xl font-bold text-white">Comfort-First & Zero-Anxiety Dentistry</h3>
                 </div>
                 <p className="text-xs text-slate-300 leading-relaxed">
                   Every procedure at Dr. Kothawala Dental Clinic prioritizes gentle, painless micro-techniques and patient relaxation.
                 </p>
-                <div className="space-y-2 pt-2 text-xs font-semibold text-teal-300">
+                <div className="space-y-2 pt-2 text-xs font-semibold text-cyan-300">
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="h-4 w-4 text-emerald-400" /> Computerized Local Anesthesia Delivery
                   </div>
@@ -113,7 +111,7 @@ export default function Home() {
         {/* 11. PATIENT JOURNEY ANIMATED BEAM (MAGIC UI) */}
         <section id="workflow" className="py-16 px-4 max-w-7xl mx-auto w-full">
           <div className="text-center mb-8">
-            <span className="text-xs font-bold uppercase tracking-widest text-teal-400">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#E5C158]">
               MAGIC UI ANIMATED BEAM CONNECTOR
             </span>
             <h3 className="text-2xl font-bold text-white mt-1">4-Step Pain-Free Patient Pathway</h3>
@@ -159,7 +157,7 @@ export default function Home() {
         </GSAPScrollTrigger>
 
         {/* 15. BKLIT RECOVERY CHARTS & 10. MAGIC UI 3D GLOBE */}
-        <section className="py-20 px-6 border-t border-white/10 bg-slate-950/80">
+        <section className="py-20 px-6 border-t border-white/10 bg-[#070A0F]/80">
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-10 items-center">
             <div className="lg:col-span-2">
               <ClinicalRecoveryChart />
@@ -174,9 +172,9 @@ export default function Home() {
         </section>
 
         {/* 16. INFINITE SMOOTH GOOGLE PATIENT REVIEW MARQUEE */}
-        <section id="reviews" className="py-16 border-t border-white/10 bg-slate-950">
+        <section id="reviews" className="py-16 border-t border-white/10 bg-[#070A0F]">
           <div className="text-center mb-8">
-            <span className="text-xs font-bold uppercase tracking-widest text-teal-400">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#E5C158]">
               MAGIC UI MARQUEE CONNECTOR
             </span>
             <h3 className="text-2xl font-bold text-white mt-1">Verified Google 5.0 ★ Nagpur Patient Reviews</h3>

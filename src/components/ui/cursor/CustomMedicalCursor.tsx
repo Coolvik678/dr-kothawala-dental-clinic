@@ -37,8 +37,8 @@ export function CustomMedicalCursor() {
         transform: `translate(-50%, -50%) scale(${isHovered ? 1.8 : 1})`,
       }}
     >
-      <div className="h-6 w-6 rounded-full border border-teal-400 bg-teal-500/20 backdrop-blur-xs flex items-center justify-center">
-        <div className="h-1.5 w-1.5 rounded-full bg-teal-300" />
+      <div className="h-6 w-6 rounded-full border border-[#E5C158] bg-[#E5C158]/20 backdrop-blur-xs flex items-center justify-center">
+        <div className="h-1.5 w-1.5 rounded-full bg-[#E5C158]" />
       </div>
     </div>
   );

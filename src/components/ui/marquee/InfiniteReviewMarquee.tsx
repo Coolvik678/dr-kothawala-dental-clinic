@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Star, Quote } from "lucide-react";
+import { Star } from "lucide-react";
 
 const reviews = [
   {
@@ -37,22 +37,22 @@ const reviews = [
 export function InfiniteReviewMarquee() {
   return (
     <div className="relative w-full overflow-hidden py-6">
-      <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-24 bg-gradient-to-r from-slate-950 to-transparent" />
-      <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-24 bg-gradient-to-l from-slate-950 to-transparent" />
+      <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-24 bg-gradient-to-r from-[#070A0F] to-transparent" />
+      <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-24 bg-gradient-to-l from-[#070A0F] to-transparent" />
 
       <div className="flex w-max animate-[marquee_25s_linear_infinite] gap-6 hover:[animation-play-state:paused]">
         {[...reviews, ...reviews].map((rev, idx) => (
           <div
             key={idx}
-            className="w-80 flex-shrink-0 rounded-2xl border border-teal-500/20 bg-slate-900/90 p-5 shadow-xl backdrop-blur-xl transition-all hover:border-teal-400/40"
+            className="w-80 flex-shrink-0 rounded-2xl border border-[#E5C158]/25 bg-[#070A0F]/90 p-5 shadow-xl backdrop-blur-xl transition-all hover:border-[#E5C158]/50"
           >
             <div className="flex items-center justify-between">
-              <div className="flex items-center gap-1 text-amber-400">
+              <div className="flex items-center gap-1 text-[#E5C158]">
                 {[...Array(rev.rating)].map((_, i) => (
                   <Star key={i} className="h-3.5 w-3.5 fill-current" />
                 ))}
               </div>
-              <span className="rounded-full bg-teal-950 px-2 py-0.5 text-[9px] font-bold text-teal-400 border border-teal-500/30">
+              <span className="rounded-full bg-amber-950/80 px-2 py-0.5 text-[9px] font-bold text-[#E5C158] border border-[#E5C158]/30">
                 Verified Google 5.0 ★
               </span>
             </div>
@@ -66,7 +66,7 @@ export function InfiniteReviewMarquee() {
                 <h5 className="text-xs font-bold text-white">{rev.name}</h5>
                 <span className="text-[10px] text-slate-400">{rev.location}</span>
               </div>
-              <span className="text-[10px] font-semibold text-teal-400">{rev.treatment}</span>
+              <span className="text-[10px] font-semibold text-cyan-400">{rev.treatment}</span>
             </div>
           </div>
         ))}
